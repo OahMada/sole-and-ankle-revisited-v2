@@ -64,9 +64,7 @@ On mobile, we lose the "Sort" filter as well:
 
 Alright, let's implement the hamburger menu!
 
-For convenience, a new component has been created for you, `MobileMenu`. It's not really a modal yet, though. Your job is to make it look _and_ act like a modal, so that clicking on the hamburger menu opens the mobile navigation:
-
-STOPSHIP GIF
+For convenience, a new component has been created for you, `MobileMenu`. It's not really a modal yet, though. Your job is to make it look _and_ act like a modal, so that clicking on the hamburger menu opens the mobile navigation.
 
 You'll need to update the hamburger-menu button we added in Exercise 2 to flip `showMobileMenu` to `true`.
 
