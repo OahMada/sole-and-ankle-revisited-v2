@@ -41,7 +41,7 @@ const Wrapper = styled.div`
 	align-items: baseline;
 	gap: 32px;
 
-	@media ${QUERIES.tablet} {
+	@media ${QUERIES.tabletAndSmaller} {
 		flex-direction: column-reverse;
 		gap: 8px;
 	}
@@ -50,7 +50,7 @@ const Wrapper = styled.div`
 const LeftColumn = styled.div`
 	flex-basis: 248px;
 
-	@media ${QUERIES.tablet} {
+	@media ${QUERIES.tabletAndSmaller} {
 		flex: 0;
 	}
 `;

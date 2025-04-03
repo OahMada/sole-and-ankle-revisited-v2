@@ -21,9 +21,12 @@ const App = () => {
 const Main = styled.main`
 	padding: 64px 32px;
 
-	@media ${QUERIES.phone} {
-		padding-left: 16px;
-		padding-right: 16px;
+	@media ${QUERIES.tabletAndSmaller} {
+		padding: 48px 32px; // Set the side paddings because I don't want it to inherit from above.
+	}
+
+	@media ${QUERIES.phoneAndSmaller} {
+		padding: 48px 16px;
 	}
 `;
 

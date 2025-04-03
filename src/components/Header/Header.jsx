@@ -11,7 +11,7 @@ import UnstyledButton from '../UnstyledButton';
 import NavLink from '../NavLink';
 
 const Header = () => {
-	// const [showMobileMenu, setShowMobileMenu] = React.useState(false);
+	const [showMobileMenu, setShowMobileMenu] = React.useState(false);
 
 	return (
 		<header>
@@ -20,32 +20,31 @@ const Header = () => {
 				<Side>
 					<Logo />
 				</Side>
-				<LaptopNav>
+				<DesktopNav>
 					<NavLink href='/sale'>Sale</NavLink>
 					<NavLink href='/new'>New&nbsp;Releases</NavLink>
+					<NavLink href='/men'>Men</NavLink>
 					<NavLink href='/men'>Men</NavLink>
 					<NavLink href='/women'>Women</NavLink>
 					<NavLink href='/kids'>Kids</NavLink>
 					<NavLink href='/collections'>Collections</NavLink>
-					<NavLink href='/collections'>Collections</NavLink>
-				</LaptopNav>
+				</DesktopNav>
 				<Side />
-				<MobileNav>
+				<MobileActions>
 					<UnstyledButton>
-						<VisuallyHidden>shopping bag</VisuallyHidden>
+						<VisuallyHidden>open cart</VisuallyHidden>
 						<Icon id='shopping-bag' />
 					</UnstyledButton>
 					<UnstyledButton>
 						<VisuallyHidden>search</VisuallyHidden>
 						<Icon id='search' />
 					</UnstyledButton>
-					<MobileMenu>
-						<UnstyledButton>
-							<VisuallyHidden>menu</VisuallyHidden>
-							<Icon id='menu' />
-						</UnstyledButton>
-					</MobileMenu>
-				</MobileNav>
+					<UnstyledButton onClick={() => setShowMobileMenu(true)}>
+						<VisuallyHidden>open menu</VisuallyHidden>
+						<Icon id='menu' />
+					</UnstyledButton>
+				</MobileActions>
+				<MobileMenu isOpen={showMobileMenu} onDismiss={() => setShowMobileMenu(false)} />
 			</MainHeader>
 		</header>
 	);
@@ -55,42 +54,42 @@ const MainHeader = styled.div`
 	display: flex;
 	align-items: baseline;
 	padding: 18px 32px;
-	height: 72px;
+	/* height: 72px; */
 	border-bottom: 1px solid var(--color-gray-300);
+	overflow: auto;
 
-	@media ${QUERIES.tablet} {
+	@media ${QUERIES.tabletAndSmaller} {
 		border-top: solid 4px var(--color-gray-900);
 		align-items: center;
 	}
 
-	@media ${QUERIES.phone} {
+	@media ${QUERIES.phoneAndSmaller} {
 		padding-left: 16px;
 		padding-right: 16px;
 	}
 `;
 
-const LaptopNav = styled.nav`
+const DesktopNav = styled.nav`
 	display: flex;
 	gap: 48px;
-	gap: clamp(24px, -2.5rem + 7vw, 48px);
+	gap: clamp(16px, -4.4rem + 9.1vw, 48px);
 
 	margin: 0px 48px;
-	overflow: auto;
 
-	@media ${QUERIES.tablet} {
+	@media ${QUERIES.tabletAndSmaller} {
 		display: none;
 	}
 `;
 
-var MobileNav = styled.div`
+var MobileActions = styled.div`
 	display: none;
-	gap: 32px;
 
-	@media ${QUERIES.tablet} {
+	@media ${QUERIES.tabletAndSmaller} {
 		display: flex;
+		gap: 32px;
 	}
 
-	@media ${QUERIES.phone} {
+	@media ${QUERIES.phoneAndSmaller} {
 		gap: 16px;
 	}
 `;
